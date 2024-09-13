@@ -6,9 +6,16 @@
 #include "weather_station.h"
 #include "config.h"
 #include <WiFi.h>
+<<<<<<< HEAD
 
 const char* ssid  = "802.11";
 const char* password = "12345678p";
+=======
+#include "Monitor.h"
+const char* ssid  = "GCEK-WiFi";
+const char* password = "";
+>>>>>>> 41cb3d8 (	new file:   Monitor.cpp)
+
 
 // Implement to take uint8_t
 
@@ -31,9 +38,13 @@ void check_wifi(){
   Serial.println(WiFi.localIP());
 }
 
+// Light sensor object
 lightSensor Light_Sensor;
 
+// Battery Monitor object
+BatteryMonitor battery_meter;
 
+// Data object
 Data Message;
 
 humidTempSensor Humid_Temp_Sensor;
@@ -98,6 +109,7 @@ void loop() {
   Message.wind_speed = Weather_Station.get_speed();
   Message.wind_direction = Weather_Station.get_direction();
   Message.rain_volume = Weather_Station.get_rain();
+  Message.battery_voltage = battery_meter.get_voltage(adc_pin);
 
   WiFiClient client = server.available();
 
@@ -149,6 +161,7 @@ void loop() {
               client.println("<p id='wind_direction'>Wind Direction: " + String(Message.wind_direction) + "(degrees) </p>");
               client.println("<p id='rain_volume'>Total Rain Fall: " + String(Message.rain_volume) + " mm</p>");
               client.println("<p id='light_intensity'>Light Intensity: " + String(Message.light_sensor_value) + "</p>");
+              client.println("<p id='battery_voltage'>Batter Voltage: " + String(Message.battery_voltage) + "</p>");
               client.println("<script>");
               client.println("setInterval(function() {");
               client.println("  var xhr = new XMLHttpRequest();");
@@ -161,6 +174,7 @@ void loop() {
               client.println("      document.getElementById('wind_direction').innerHTML = 'Wind Direction: ' + data.wind_direction;");
               client.println("      document.getElementById('rain_volume').innerHTML = 'Total Rain Fall: ' + data.rain_volume + ' mm';");
               client.println("      document.getElementById('light_intensity').innerHTML = 'Light Intensity: ' + data.light_sensor_value;");
+              client.println("      document.getElementById('battery_voltage').innerHTML = 'Battery Voltage: ' + data.battery_voltage;");
               client.println("    }");
               client.println("  };");
               client.println("  xhr.open('GET', '/data', true);");
