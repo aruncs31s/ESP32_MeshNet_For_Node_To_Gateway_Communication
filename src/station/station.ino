@@ -67,7 +67,10 @@ void setup(){
   IPAddress local_IP(192,168,13,5);
   IPAddress gateway(192,168,230,1);
   IPAddress subnet(255,255,255,0);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 282b861 (update staticIP_Oneplus)
   IPAddress primaryDNS(8,8,8,8);
   IPAddress secondaryDNS(8,8,8,8);
 
