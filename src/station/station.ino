@@ -57,11 +57,17 @@ if ((WiFi.status()) != WL_CONNECTED ){
 void setup(){
   Serial.begin(9600);
   // Get static IP
+<<<<<<< HEAD
 
   IPAddress local_IP(172,16,32,8);
   IPAddress gateway(172,16,32,1);
   IPAddress subnet(255,255,252,0);
 
+=======
+  IPAddress local_IP(172,16,32,8);
+  IPAddress gateway(172,16,32,1);
+  IPAddress subnet(255,255,252,0);
+>>>>>>> dc674f6 (update staticIP_GCEK)
   IPAddress primaryDNS(8,8,8,8);
   IPAddress secondaryDNS(8,8,8,8);
   WiFi.config(local_IP,gateway,subnet,primaryDNS,secondaryDNS);
