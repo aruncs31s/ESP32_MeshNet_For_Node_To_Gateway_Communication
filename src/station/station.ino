@@ -53,16 +53,27 @@ void setup(){
   Serial.begin(9600);
   // Get static IP
 <<<<<<< HEAD
+<<<<<<< HEAD
   IPAddress local_IP(192,168,13,5);
   IPAddress gateway(192,168,230,1);
   IPAddress subnet(255,255,255,0);
 =======
+=======
+>>>>>>> 81d1671 (update staticIP_GCEK)
 
   IPAddress local_IP(172,16,32,8);
   IPAddress gateway(172,16,32,1);
   IPAddress subnet(255,255,252,0);
 
+<<<<<<< HEAD
 >>>>>>> 913664f (update staticIP_Oneplus)
+=======
+=======
+  IPAddress local_IP(172,16,32,8);
+  IPAddress gateway(172,16,32,1);
+  IPAddress subnet(255,255,252,0);
+>>>>>>> dc674f6 (update staticIP_GCEK)
+>>>>>>> 81d1671 (update staticIP_GCEK)
   IPAddress primaryDNS(8,8,8,8);
   IPAddress secondaryDNS(8,8,8,8);
 

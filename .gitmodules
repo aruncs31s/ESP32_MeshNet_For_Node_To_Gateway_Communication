@@ -1,0 +1,3 @@
+[submodule "src/station/Solar-Battery-Monitor"]
+	path = src/station/Solar-Battery-Monitor
+	url = https://github.com/aruncs31s/Solar-Battery-Monitor
