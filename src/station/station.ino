@@ -7,6 +7,7 @@
 #include "config.h"
 #include <WiFi.h>
 #include "Monitor.h"
+
 const char* ssid  = "802.11";
 const char* password = "12345678p";
 
@@ -112,6 +113,7 @@ void loop() {
               client.print("\"wind_direction\":"); client.print(Message.wind_direction); client.print(",");
               client.print("\"rain_volume\":"); client.print(Message.rain_volume); client.print(",");
               client.print("\"light_sensor_value\":"); client.print(Message.light_sensor_value);
+              client.print("\"batery_voltage\":"); client.print(Message.battery_voltage);
               client.println("}");
               client.println();
               break;
@@ -134,7 +136,7 @@ void loop() {
               client.println("<p id='wind_direction'>Wind Direction: " + String(Message.wind_direction) + "(degrees) </p>");
               client.println("<p id='rain_volume'>Total Rain Fall: " + String(Message.rain_volume) + " mm</p>");
               client.println("<p id='light_intensity'>Light Intensity: " + String(Message.light_sensor_value) + "</p>");
-              client.println("<p id='battery_voltage'>Batter Voltage: " + String(Message.battery_voltage) + "</p>");
+              client.println("<p id='battery_voltage'>Battery Voltage: " + String(Message.battery_voltage) + "</p>");
               client.println("<script>");
               client.println("setInterval(function() {");
               client.println("  var xhr = new XMLHttpRequest();");

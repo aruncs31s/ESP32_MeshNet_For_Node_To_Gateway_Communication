@@ -20,5 +20,5 @@ float BatteryMonitor::get_voltage(int adc_pin) {
   return actual_voltage;
 }
 int BatteryMonitor::get_adc_value() { return adc_value; }
-int BatteryMonitor::get_adc_voltage() { return adc_voltage; }
+float BatteryMonitor::get_adc_voltage() { return adc_voltage; }
 float BatteryMonitor::get_devider_current() {}
