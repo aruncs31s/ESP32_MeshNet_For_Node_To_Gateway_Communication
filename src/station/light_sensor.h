@@ -1,8 +1,8 @@
 /* Author : Arun CS
  * Github : https://github.com/aruncs31s/
- * Time : 
+ * Time :
  * Date : 20/08/2024 DD/MM/YYYY
- * Sensor : VEML7700 Ambient Light Sensor 
+ * Sensor : VEML7700 Ambient Light Sensor
  * Interface : I2C
  */
 #ifndef SENSOR_H
