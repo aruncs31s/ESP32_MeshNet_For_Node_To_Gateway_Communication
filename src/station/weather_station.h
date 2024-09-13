@@ -5,8 +5,8 @@
 
 class weatherStation {
 public:
- 
- weatherStation() : weatherMeterKit(PIN_WIND_DIRECTION, PIN_WIND_SPEED, PIN_RAINFALL) {}
+  weatherStation()
+      : weatherMeterKit(PIN_WIND_DIRECTION, PIN_WIND_SPEED, PIN_RAINFALL) {}
   void init();
   float get_speed();
   float get_direction();
