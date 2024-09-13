@@ -51,7 +51,7 @@ if ((WiFi.status()) != WL_CONNECTED ){
 void setup(){
   Serial.begin(9600);
   // Get static IP
-  IPAddress local_IP(192,168,230,5);
+  IPAddress local_IP(192,168,13,5);
   IPAddress gateway(192,168,230,1);
   IPAddress subnet(255,255,255,0);
   IPAddress primaryDNS(8,8,8,8);
@@ -81,11 +81,12 @@ void loop() {
 
   WiFiClient client = server.available();
 
-  // if (client) {
+  if (client) {
     currentTime = millis();
     previousTime = currentTime;
     Serial.println("New Client.");
     String currentLine = "";
+    header = "";
     while (client.connected() && currentTime - previousTime <= timeoutTime) {
       currentTime = millis();
       if (client.available()) {
@@ -159,8 +160,8 @@ void loop() {
         }
       }
       }
-      // }
-
+      }
+    client.stop();
     reconnect();
     delay(100);
       }
