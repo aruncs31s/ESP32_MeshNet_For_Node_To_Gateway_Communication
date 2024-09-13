@@ -61,6 +61,7 @@ void setup(){
   IPAddress local_IP(172,16,32,8);
   IPAddress gateway(172,16,32,1);
   IPAddress subnet(255,255,252,0);
+
   IPAddress primaryDNS(8,8,8,8);
   IPAddress secondaryDNS(8,8,8,8);
   WiFi.config(local_IP,gateway,subnet,primaryDNS,secondaryDNS);
@@ -172,8 +173,6 @@ void loop() {
       }
     client.stop();
     reconnect();
-    delay(1000);
     
-Serial.print("Battery Voltage:");
-Serial.println(Message.battery_voltage);
+    delay(100);
       }
