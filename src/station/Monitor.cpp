@@ -13,10 +13,10 @@ float BatteryMonitor::get_voltage(int adc_pin) {
   // the esp32 can measure
   //          2. I used 0.965:5.495 also 0.965k ohm as the Rb and 4.530 as Ra
 
-  adc_value = analogRead(adc_pin)+ ADC_OFFSET;
-  adc_voltage = (VREF * adc_value ) / 4095 ;
+  adc_value = analogRead(adc_pin) + ADC_OFFSET;
+  adc_voltage = (VREF * adc_value) / 4095;
 
-  actual_voltage = (adc_voltage / RESISTOR_RATIO) ;
+  actual_voltage = (adc_voltage / RESISTOR_RATIO);
   return actual_voltage;
 }
 int BatteryMonitor::get_adc_value() { return adc_value; }

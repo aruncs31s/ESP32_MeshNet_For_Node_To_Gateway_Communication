@@ -22,7 +22,7 @@ class BatteryMonitor {
 
 public:
   int get_adc_value();
-  int get_adc_voltage();
+  float get_adc_voltage();
   float get_voltage(int adc_pin);
   float get_devider_current();
 

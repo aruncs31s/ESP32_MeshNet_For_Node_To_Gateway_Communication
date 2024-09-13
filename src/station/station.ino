@@ -6,16 +6,9 @@
 #include "weather_station.h"
 #include "config.h"
 #include <WiFi.h>
-<<<<<<< HEAD
-
+#include "Monitor.h"
 const char* ssid  = "802.11";
 const char* password = "12345678p";
-=======
-#include "Monitor.h"
-const char* ssid  = "GCEK-WiFi";
-const char* password = "";
->>>>>>> 41cb3d8 (	new file:   Monitor.cpp)
-
 
 // Implement to take uint8_t
 
@@ -42,7 +35,7 @@ void check_wifi(){
 lightSensor Light_Sensor;
 
 // Battery Monitor object
-BatteryMonitor battery_meter;
+BatteryMonitor battery_monitor;
 
 // Data object
 Data Message;
@@ -67,13 +60,8 @@ void setup(){
   IPAddress local_IP(192,168,13,5);
   IPAddress gateway(192,168,230,1);
   IPAddress subnet(255,255,255,0);
-<<<<<<< HEAD
-
-=======
->>>>>>> 282b861 (update staticIP_Oneplus)
   IPAddress primaryDNS(8,8,8,8);
   IPAddress secondaryDNS(8,8,8,8);
-
   WiFi.config(local_IP,gateway,subnet,primaryDNS,secondaryDNS);
   check_wifi();
   Weather_Station.init();
@@ -95,8 +83,7 @@ void loop() {
   Message.wind_speed = Weather_Station.get_speed();
   Message.wind_direction = Weather_Station.get_direction();
   Message.rain_volume = Weather_Station.get_rain();
-  Message.battery_voltage = battery_meter.get_voltage(adc_pin);
-
+  Message.battery_voltage = battery_monitor.get_voltage(ADC_PIN);
   WiFiClient client = server.available();
 
   if (client) {
@@ -183,5 +170,8 @@ void loop() {
       }
     client.stop();
     reconnect();
-    delay(100);
+    delay(1000);
+    
+Serial.print("Battery Voltage:");
+Serial.println(Message.battery_voltage);
       }
