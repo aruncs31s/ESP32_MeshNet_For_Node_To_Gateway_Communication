@@ -39,6 +39,7 @@ Data Message;
 humidTempSensor Humid_Temp_Sensor;
 
 weatherStation Weather_Station;
+
 void reconnect(){
 if ((WiFi.status()) != WL_CONNECTED ){
   Serial.println("Reconnecting .");
@@ -51,9 +52,17 @@ if ((WiFi.status()) != WL_CONNECTED ){
 void setup(){
   Serial.begin(9600);
   // Get static IP
+<<<<<<< HEAD
   IPAddress local_IP(192,168,13,5);
   IPAddress gateway(192,168,230,1);
   IPAddress subnet(255,255,255,0);
+=======
+
+  IPAddress local_IP(172,16,32,8);
+  IPAddress gateway(172,16,32,1);
+  IPAddress subnet(255,255,252,0);
+
+>>>>>>> 913664f (update staticIP_Oneplus)
   IPAddress primaryDNS(8,8,8,8);
   IPAddress secondaryDNS(8,8,8,8);
 
