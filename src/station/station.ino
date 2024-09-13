@@ -57,7 +57,6 @@ if ((WiFi.status()) != WL_CONNECTED ){
 void setup(){
   Serial.begin(9600);
   // Get static IP
-
   IPAddress local_IP(172,16,32,8);
   IPAddress gateway(172,16,32,1);
   IPAddress subnet(255,255,252,0);
